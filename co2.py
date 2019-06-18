@@ -21,6 +21,7 @@ base = 0
 CO2detect = 0
 content = 0
 PTW.state['CO2detect'] = 1
+PTW.state['Co2'] = 1
 
 # ^ setup
 
@@ -32,6 +33,7 @@ while True:
     if content <= 250 or base - content >= 30:
         CO2detect = 2
         PTW.state['CO2detect'] = 2
+        
     elif content <= 190 or base - content >= 50:
         CO2detect = 3
         PTW.state['CO2detect'] = 3
@@ -40,5 +42,5 @@ while True:
         CO2detect = 1
         PTW.state['CO2detect'] = 1
         x = 0
-
+    PTW.state['Co2'] = content
     PTW.post()
